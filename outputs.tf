@@ -7,5 +7,5 @@ output "cloudtrail_arn" {
 }
 
 output "security_sns_topic_arn" {
-  value = "${module.slack_notify.this_slack_topic_arn}"
+  value = "${module.notify_slack.this_slack_topic_arn}"
 }

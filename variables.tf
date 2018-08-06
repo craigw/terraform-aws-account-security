@@ -12,12 +12,6 @@ variable "region" {
   default = "eu-west-1"
 }
 
-variable "ops_principals" {
-  type = "list"
-
-  default = []
-}
-
 variable "slack_notifier_webhook_url" {}
 
 variable "slack_notifier_channel" {

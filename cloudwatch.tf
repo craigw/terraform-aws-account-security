@@ -232,9 +232,3 @@ resource "aws_cloudwatch_metric_alarm" "nacl_change" {
   alarm_description   = "${local.alarm_prefix}NACL have been changed"
   alarm_actions       = ["${aws_sns_topic.security_alerts.arn}"]
 }
-
-resource "aws_sns_topic" "security_alerts" {
-  provider     = "aws.account-security"
-  name         = "security-alerts-topic"
-  display_name = "Security Alerts"
-}

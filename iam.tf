@@ -24,10 +24,9 @@ resource "aws_iam_role_policy_attachment" "ops-role-has-administrator-policy" {
 }
 
 locals {
-  account_alias  = "${var.account_alias == "" ? "${var.organisation}-${var.application}-${var.environment}" : var.account_alias}"
+  account_alias = "${var.account_alias == "" ? "${var.organisation}-${var.application}-${var.environment}" : var.account_alias}"
 }
 
 resource "aws_iam_account_alias" "alias" {
   account_alias = "${local.account_alias}"
 }
-

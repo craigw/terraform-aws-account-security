@@ -28,7 +28,7 @@ resource "aws_cloudwatch_metric_alarm" "root_login" {
   statistic           = "Sum"
   threshold           = "1"
   alarm_description   = "${local.alarm_prefix}Use of the root account has been detected"
-  alarm_actions       = ["${aws_sns_topic.security_alerts.arn}"]
+  alarm_actions       = ["${module.slack_notifier.this_slack_topic_arn}"]
 }
 
 resource "aws_cloudwatch_log_metric_filter" "console_without_mfa" {
@@ -55,7 +55,7 @@ resource "aws_cloudwatch_metric_alarm" "console_without_mfa" {
   statistic           = "Sum"
   threshold           = "1"
   alarm_description   = "${local.alarm_prefix}Use of the console by an account without MFA has been detected"
-  alarm_actions       = ["${aws_sns_topic.security_alerts.arn}"]
+  alarm_actions       = ["${module.slack_notifier.this_slack_topic_arn}"]
 }
 
 resource "aws_cloudwatch_log_metric_filter" "action_without_mfa" {
@@ -82,7 +82,7 @@ resource "aws_cloudwatch_metric_alarm" "action_without_mfa" {
   statistic           = "Sum"
   threshold           = "1"
   alarm_description   = "${local.alarm_prefix}Actions triggered by a user account without MFA has been detected"
-  alarm_actions       = ["${aws_sns_topic.security_alerts.arn}"]
+  alarm_actions       = ["${module.slack_notifier.this_slack_topic_arn}"]
 }
 
 resource "aws_cloudwatch_log_metric_filter" "illegal_key_use" {
@@ -109,7 +109,7 @@ resource "aws_cloudwatch_metric_alarm" "illegal_key_use" {
   statistic           = "Sum"
   threshold           = "1"
   alarm_description   = "${local.alarm_prefix}A key alias has been changed or a key has been deleted"
-  alarm_actions       = ["${aws_sns_topic.security_alerts.arn}"]
+  alarm_actions       = ["${module.slack_notifier.this_slack_topic_arn}"]
 }
 
 resource "aws_cloudwatch_log_metric_filter" "decription_with_key" {
@@ -149,7 +149,7 @@ resource "aws_cloudwatch_metric_alarm" "security_group_change" {
   statistic           = "Sum"
   threshold           = "1"
   alarm_description   = "${local.alarm_prefix}Security groups have been changed"
-  alarm_actions       = ["${aws_sns_topic.security_alerts.arn}"]
+  alarm_actions       = ["${module.slack_notifier.this_slack_topic_arn}"]
 }
 
 resource "aws_cloudwatch_log_metric_filter" "iam_change" {
@@ -176,7 +176,7 @@ resource "aws_cloudwatch_metric_alarm" "iam_change" {
   statistic           = "Sum"
   threshold           = "1"
   alarm_description   = "${local.alarm_prefix}IAM Resources have been changed"
-  alarm_actions       = ["${aws_sns_topic.security_alerts.arn}"]
+  alarm_actions       = ["${module.slack_notifier.this_slack_topic_arn}"]
 }
 
 resource "aws_cloudwatch_log_metric_filter" "routetable_change" {
@@ -203,7 +203,7 @@ resource "aws_cloudwatch_metric_alarm" "routetable_change" {
   statistic           = "Sum"
   threshold           = "1"
   alarm_description   = "${local.alarm_prefix}Route Table Resources have been changed"
-  alarm_actions       = ["${aws_sns_topic.security_alerts.arn}"]
+  alarm_actions       = ["${module.slack_notifier.this_slack_topic_arn}"]
 }
 
 resource "aws_cloudwatch_log_metric_filter" "nacl_change" {
@@ -230,5 +230,5 @@ resource "aws_cloudwatch_metric_alarm" "nacl_change" {
   statistic           = "Sum"
   threshold           = "1"
   alarm_description   = "${local.alarm_prefix}NACL have been changed"
-  alarm_actions       = ["${aws_sns_topic.security_alerts.arn}"]
+  alarm_actions       = ["${module.slack_notifier.this_slack_topic_arn}"]
 }

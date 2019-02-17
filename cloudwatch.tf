@@ -11,9 +11,10 @@ resource "aws_cloudwatch_log_metric_filter" "root_login" {
   log_group_name = "${aws_cloudwatch_log_group.cloudtrail.name}"
 
   metric_transformation {
-    name      = "RootAccessCount"
-    namespace = "${local.metrics_namespace}"
-    value     = "1"
+    name          = "RootAccessCount"
+    namespace     = "${local.metrics_namespace}"
+    value         = "1"
+    default_value = "0"
   }
 }
 
@@ -38,9 +39,10 @@ resource "aws_cloudwatch_log_metric_filter" "console_without_mfa" {
   log_group_name = "${aws_cloudwatch_log_group.cloudtrail.name}"
 
   metric_transformation {
-    name      = "ConsoleWithoutMFACount"
-    namespace = "${local.metrics_namespace}"
-    value     = "1"
+    name          = "ConsoleWithoutMFACount"
+    namespace     = "${local.metrics_namespace}"
+    value         = "1"
+    default_value = "0"
   }
 }
 
@@ -65,9 +67,10 @@ resource "aws_cloudwatch_log_metric_filter" "action_without_mfa" {
   log_group_name = "${aws_cloudwatch_log_group.cloudtrail.name}"
 
   metric_transformation {
-    name      = "UseWithoutMFACount"
-    namespace = "${local.metrics_namespace}"
-    value     = "1"
+    name          = "UseWithoutMFACount"
+    namespace     = "${local.metrics_namespace}"
+    value         = "1"
+    default_value = "0"
   }
 }
 
@@ -92,9 +95,10 @@ resource "aws_cloudwatch_log_metric_filter" "illegal_key_use" {
   log_group_name = "${aws_cloudwatch_log_group.cloudtrail.name}"
 
   metric_transformation {
-    name      = "KeyChangeOrDelete"
-    namespace = "${local.metrics_namespace}"
-    value     = "1"
+    name          = "KeyChangeOrDelete"
+    namespace     = "${local.metrics_namespace}"
+    value         = "1"
+    default_value = "0"
   }
 }
 
@@ -119,9 +123,10 @@ resource "aws_cloudwatch_log_metric_filter" "decription_with_key" {
   log_group_name = "${aws_cloudwatch_log_group.cloudtrail.name}"
 
   metric_transformation {
-    name      = "DecryptionWithKMS"
-    namespace = "${local.metrics_namespace}"
-    value     = "1"
+    name          = "DecryptionWithKMS"
+    namespace     = "${local.metrics_namespace}"
+    value         = "1"
+    default_value = "0"
   }
 }
 
@@ -132,9 +137,10 @@ resource "aws_cloudwatch_log_metric_filter" "security_group_change" {
   log_group_name = "${aws_cloudwatch_log_group.cloudtrail.name}"
 
   metric_transformation {
-    name      = "SecurityGroupChanges"
-    namespace = "${local.metrics_namespace}"
-    value     = "1"
+    name          = "SecurityGroupChanges"
+    namespace     = "${local.metrics_namespace}"
+    value         = "1"
+    default_value = "0"
   }
 }
 
@@ -159,9 +165,10 @@ resource "aws_cloudwatch_log_metric_filter" "iam_change" {
   log_group_name = "${aws_cloudwatch_log_group.cloudtrail.name}"
 
   metric_transformation {
-    name      = "IamChanges"
-    namespace = "${local.metrics_namespace}"
-    value     = "1"
+    name          = "IamChanges"
+    namespace     = "${local.metrics_namespace}"
+    value         = "1"
+    default_value = "0"
   }
 }
 
@@ -186,9 +193,10 @@ resource "aws_cloudwatch_log_metric_filter" "routetable_change" {
   log_group_name = "${aws_cloudwatch_log_group.cloudtrail.name}"
 
   metric_transformation {
-    name      = "RouteTableChanges"
-    namespace = "${local.metrics_namespace}"
-    value     = "1"
+    name          = "RouteTableChanges"
+    namespace     = "${local.metrics_namespace}"
+    value         = "1"
+    default_value = "0"
   }
 }
 
@@ -213,9 +221,10 @@ resource "aws_cloudwatch_log_metric_filter" "nacl_change" {
   log_group_name = "${aws_cloudwatch_log_group.cloudtrail.name}"
 
   metric_transformation {
-    name      = "NaclChanges"
-    namespace = "${local.metrics_namespace}"
-    value     = "1"
+    name          = "NaclChanges"
+    namespace     = "${local.metrics_namespace}"
+    value         = "1"
+    default_value = "0"
   }
 }
 

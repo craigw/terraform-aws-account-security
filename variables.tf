@@ -21,3 +21,7 @@ variable "slack_notifier_channel" {
 variable "slack_notifier_username" {
   default = "AWS"
 }
+
+variable "guardduty_enabled" {
+  default = "true"
+}
